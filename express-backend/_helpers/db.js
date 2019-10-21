@@ -15,5 +15,5 @@ mongoose.Promise = global.Promise;
 
 module.exports = {
     User: require('../features/users/user.model'),
-    Issue: require('../features/application/application.model')
+    Application: require('../features/application/application.model'),
 };

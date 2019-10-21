@@ -30,7 +30,7 @@ async function authenticate({ username, password }) {
         const token = jwt.sign(
             { sub: user.id, admin: user.admin },
             process.env.SECRET,
-            {expiresIn:  '1d'}
+            { expiresIn:  '1d' }
             );
         return {
             ...userWithoutHash,

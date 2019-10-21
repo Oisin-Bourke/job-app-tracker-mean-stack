@@ -8,15 +8,17 @@ const applicationSchema = new Schema({
     location: { type: String, trim: true, required: true },
     email: { type: String, trim: true },
     telephone: { type: String, trim: true },
+    notes: [
+        {
+            date: Date,
+            body: String
+        }
+    ],
     status: { type: String, default: 'Open' },
-    notes : [
-        { date: Date, body: String }
-        ],
-    updates: { type: Boolean },
+    updates: { type: Boolean, default: true },
     createdDate: { type: Date, default: Date.now },
     author: { type: mongoose.Schema.Types.ObjectId, required: true, ref:'User'},
 });
 
 applicationSchema.set('toJSON', { virtuals: true });
-
 module.exports = mongoose.model('Application', applicationSchema);

@@ -25,7 +25,7 @@ app.use(cors());
 app.use(jwt());
 
 app.use('/users', require('./features/users/user.controller'));
-app.use('/issues', require('./features/application/application.controller'));
+app.use('/applications', require('./features/application/application.controller'));
 
 app.use(errorHandler);
 
