@@ -1,0 +1,31 @@
+<div>
+  <br>
+  <mat-card>
+    <h4 class="mat-display-1">Login</h4>
+    <form [formGroup]="loginForm">
+      <br>
+      <div class="login-container">
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Username*" formControlName="username" #username>
+          </label>
+          <button mat-icon-button matSuffix disabled>
+            <mat-icon aria-hidden="true">person</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Password*" formControlName="password" [type]="hide ? 'password' : 'text'" #password >
+          </label>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br>
+      </div>
+      <button mat-raised-button color="accent" routerLink="/register">Register</button>
+      <button type="submit" (click)="onSubmit(username.value,password.value)" [disabled]="loginForm.pristine || loginForm.invalid" mat-raised-button color="primary">Login</button>
+    </form>
+  </mat-card>
+</div>

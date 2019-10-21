@@ -1,0 +1,43 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.register-container > * {
+  width: 90%;
+}
+
+.register-right-align {
+  text-align: right;
+}
+
+input.register-right-align::-webkit-outer-spin-button,
+input.register-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.register-right-align {
+  -moz-appearance: textfield;
+}
+
+button{
+  margin: 5px;
+}
+
+mat-form-field{
+  margin-top: 5px;
+}
+
+.invalid-feedback {
+  color: #D8000C;
+  font-size: small;
+}
+
+.field-full-width {
+  width: 100%;
+}
+
+.user-password-container {
+  width: 60%;
+}
