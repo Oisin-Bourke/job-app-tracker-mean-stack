@@ -23,22 +23,6 @@
         </div>
         <mat-form-field class="field-full-width">
           <label>
-            <input matInput formControlName="company" placeholder="Company*" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.company.errors }">
-          </label>
-        </mat-form-field>
-        <div *ngIf="submitted && registerForm.controls.company.errors" class="invalid-feedback">
-          <div *ngIf="registerForm.controls.company.errors.required">Company is required</div>
-        </div>
-        <mat-form-field class="field-full-width">
-          <label>
-            <input matInput formControlName="telephone" placeholder="Telephone*" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.telephone.errors }">
-          </label>
-        </mat-form-field>
-        <div *ngIf="submitted && registerForm.controls.telephone.errors" class="invalid-feedback">
-          <div *ngIf="registerForm.controls.telephone.errors.required">Telephone number is required</div>
-        </div>
-        <mat-form-field class="field-full-width">
-          <label>
             <input matInput formControlName="email" placeholder="Email*" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.email.errors }">
           </label>
         </mat-form-field>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IssueModule } from "./issue/issue.module";
+import { ApplicationModule } from "./application/application.module";
 import { AuthenticateModule } from "./authenticate/authenticate.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from "./app-material/app-material.module";
@@ -20,7 +20,7 @@ import { ErrorInterceptor } from "./_helpers/error.interceptor";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IssueModule,
+    ApplicationModule,
     AuthenticateModule,
     UserModule,
     BrowserAnimationsModule,

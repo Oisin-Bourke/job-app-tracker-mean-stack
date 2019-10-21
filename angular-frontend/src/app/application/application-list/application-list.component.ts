@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Issue } from "../../models/issue.model";
-import { IssueService } from "../../services/issue.service";
+import { Application} from "../../models/application.model";
+import { ApplicationService } from "../../services/application.service";
 import { Router } from "@angular/router";
 import { animate, state, style, transition, trigger } from "@angular/animations";
 
 @Component({
   selector: 'app-issue-list',
-  templateUrl: './issue-list.component.html',
-  styleUrls: ['./issue-list.component.css'],
+  templateUrl: './application-list.component.html',
+  styleUrls: ['./application-list.component.css'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -16,13 +16,13 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
     ]),
   ],
 })
-export class IssueListComponent implements OnInit {
-  issues: Issue[];
+export class ApplicationListComponent implements OnInit {
+  applications: Application [];
   displayedColumns = ['index','responsible', 'threat', 'severity', 'status'];
-  expandedElement: Issue | null;
+  expandedElement: Application | null;
 
   constructor(
-    private issueService:IssueService,
+    private issueService:ApplicationService,
     private router: Router
   ) { }
 
@@ -32,14 +32,14 @@ export class IssueListComponent implements OnInit {
 
   fetchIssuesByUser() {
     this.issueService.getIssuesByUser().subscribe(
-      (data: Issue[]) => {
-        this.issues = data;
+      (data: Application[]) => {
+        this.applications = data;
       }
     )
   }
 
   navigateCreate(){
-    this.router.navigate(['/issues/create']);
+    this.router.navigate(['/applications/create']);
   }
 
 }

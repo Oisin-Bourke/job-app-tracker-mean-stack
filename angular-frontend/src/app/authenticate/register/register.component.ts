@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/users']);
       }
       if(user.admin===false){
-        this.router.navigate(['/issues']);
+        this.router.navigate(['/applications']);
       }
     }
      */
@@ -44,8 +44,6 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      company: ['', Validators.required],
-      telephone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],

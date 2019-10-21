@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {IssueService} from "../../services/issue.service";
+import {ApplicationService} from "../../services/application.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-issue-create',
-  templateUrl: './issue-create.component.html',
-  styleUrls: ['./issue-create.component.css']
+  templateUrl: './application-create.component.html',
+  styleUrls: ['./application-create.component.css']
 })
-export class IssueCreateComponent implements OnInit {
+export class ApplicationCreateComponent implements OnInit {
 
-  createIssueForm: FormGroup;
+  createApplicationForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private issueService: IssueService,
+    private issueService: ApplicationService,
     private router: Router){}
 
   ngOnInit() {
-    this.createIssueForm = this.formBuilder.group({
+    this.createApplicationForm = this.formBuilder.group({
       responsible: ['', Validators.required],
       url: ['', Validators.required],
       severity: '',
@@ -29,7 +29,7 @@ export class IssueCreateComponent implements OnInit {
   addIssue(responsible, url, severity, description ) {
     this.issueService.addIssue(responsible, url, severity, description)
       .subscribe( () => {
-        this.router.navigate(['/issues/']);
+        this.router.navigate(['/applications/']);
       });
   }
 

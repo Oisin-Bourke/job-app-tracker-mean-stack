@@ -5,7 +5,7 @@
     </section>
     <mat-divider></mat-divider>
     <br>
-    <form [formGroup]="createIssueForm" class="create-form">
+    <form [formGroup]="createApplicationForm" class="create-form">
       <mat-form-field class="field-full-width">
         <label>
           <input matInput placeholder="Responsible" formControlName="responsible" #responsible>
@@ -33,7 +33,7 @@
       <mat-divider></mat-divider>
       <br>
      <!--<button mat-raised-button color="accent" (click)="backOnePage()">Back</button>-->
-      <button type="submit" (click)="addIssue(responsible.value, url.value, severity.value, description.value)" [disabled]="createIssueForm.pristine || createIssueForm.invalid" mat-raised-button color="primary">Create</button>
+      <button type="submit" (click)="addIssue(responsible.value, url.value, severity.value, description.value)" [disabled]="createApplicationForm.pristine || createApplicationForm.invalid" mat-raised-button color="primary">Create</button>
     </form>
   </mat-card>
 </div>

@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/users']);
       }
       if(user.admin===false){
-        this.router.navigate(['/issues']);
+        this.router.navigate(['/applications']);
       }
     }
      */
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/users']);
           }
           if(data.admin==false) {
-            this.router.navigate(['/issues']);
+            this.router.navigate(['/applications']);
           }
         },
         error => {
