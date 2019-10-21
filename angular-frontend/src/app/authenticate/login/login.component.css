@@ -5,7 +5,7 @@
 }
 
 .login-container > * {
-  width: 90%;
+  width: 95%;
 }
 
 .login-right-align {
@@ -31,4 +31,12 @@ button{
 
 mat-form-field{
   margin-top: 5px;
+}
+
+@media only screen  and (min-width : 1224px) {
+  .container {
+    margin: auto;
+    width: 50%;
+  }
+
 }

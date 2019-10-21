@@ -3,11 +3,12 @@
     <h4 class="mat-display-1">Register</h4>
     <mat-divider></mat-divider>
     <br>
+    <div class="container">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="register-container">
         <mat-form-field class="field-full-width">
           <label>
-            <input matInput formControlName="firstName" placeholder="First Name" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.firstName.errors }">
+            <input matInput formControlName="firstName" placeholder="First Name*" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.firstName.errors }">
           </label>
         </mat-form-field>
         <div *ngIf="submitted && registerForm.controls.firstName.errors" class="invalid-feedback">
@@ -37,6 +38,9 @@
                 <label>
                   <input matInput formControlName="username" placeholder="Username*" [ngClass]="{ 'is-invalid': submitted && registerForm.controls.username.errors }">
                 </label>
+                <button mat-icon-button matSuffix disabled>
+                  <mat-icon aria-hidden="true">person</mat-icon>
+                </button>
               </mat-form-field>
               <div *ngIf="submitted && registerForm.controls.username.errors" class="invalid-feedback">
                 <div *ngIf="registerForm.controls.username.errors.required">Username is required</div>
@@ -71,8 +75,9 @@
             </mat-card>
         </div>
       </div>
+        <button mat-raised-button color="primary">Register</button>
       <br>
-      <button mat-raised-button color="primary">Register</button>
     </form>
+    </div>
   </mat-card>
 </div>
