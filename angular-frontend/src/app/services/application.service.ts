@@ -10,7 +10,7 @@ export class ApplicationService {
 
   constructor(private http: HttpClient) { }
 
-  getIssuesByUser() {
+  getApplicationsByUser() {
     return this.http.get<Application[]>(`${environment.localApiUrl}/applications`);
   }
 
@@ -22,6 +22,17 @@ export class ApplicationService {
       description: description
     };
     return this.http.post(`${environment.localApiUrl}/applications/create`, issue);
+  }
+
+  addNote(id : number, date, type, body){
+
+    const note = {
+      date: date,
+      type: type,
+      body: body
+    };
+
+    return this.http.put(`${environment.localApiUrl}/applications/note/${id}`, note );
   }
 
 

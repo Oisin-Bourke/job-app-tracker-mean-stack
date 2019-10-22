@@ -18,28 +18,31 @@ import { animate, state, style, transition, trigger } from "@angular/animations"
 })
 export class ApplicationListComponent implements OnInit {
   applications: Application [];
-  displayedColumns = ['index','responsible', 'threat', 'severity', 'status'];
+  displayedColumns = ['appDate','jobTitle', 'company','expand'];
   expandedElement: Application | null;
 
   constructor(
-    private issueService:ApplicationService,
+    private applicationService:ApplicationService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.fetchIssuesByUser();
+    this.fetchApplications();
   }
 
-  fetchIssuesByUser() {
-    this.issueService.getIssuesByUser().subscribe(
+  fetchApplications() {
+    this.applicationService.getApplicationsByUser().subscribe(
       (data: Application[]) => {
         this.applications = data;
-      }
-    )
+      });
   }
 
   navigateCreate(){
     this.router.navigate(['/applications/create']);
+  }
+
+  navigateAddNote(id){
+    this.router.navigate([`/applications/note/${id}`]);
   }
 
 }

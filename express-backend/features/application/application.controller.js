@@ -52,7 +52,7 @@ function _delete(req, res, next) {
 }
 
 function addNote(req, res, next) {
-    applicationService.addNote(req.params.id, req.body.date, req.body.body)
+    applicationService.addNote(req.params.id, req.body.date, req.body.type, req.body.body)
         .then(() => res.json({ message: 'New Note added' }))
         .catch(err => next(err));
 }

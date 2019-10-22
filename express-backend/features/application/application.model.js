@@ -11,7 +11,8 @@ const applicationSchema = new Schema({
     notes: [
         {
             date: Date,
-            body: String
+            type: String,
+            body: { type: String, trim: true }
         }
     ],
     status: { type: String, default: 'Open' },

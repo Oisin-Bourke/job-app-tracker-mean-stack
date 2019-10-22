@@ -12,6 +12,7 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [],
@@ -28,7 +29,8 @@ import {MatListModule} from "@angular/material/list";
     MatSortModule,
     MatInputModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ],
   exports: [
     MatDividerModule,
@@ -42,7 +44,8 @@ import {MatListModule} from "@angular/material/list";
     MatSortModule,
     MatInputModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule
   ]
 })
 export class AppMaterialModule { }

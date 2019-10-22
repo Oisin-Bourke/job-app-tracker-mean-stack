@@ -6,8 +6,9 @@ import { ApplicationListComponent } from "./application/application-list/applica
 import { ApplicationCreateComponent } from "./application/application-create/application-create.component";
 import { ApplicationUpdateComponent } from "./application/application-update/application-update.component";
 import { AboutComponent } from "./authenticate/about/about.component";
-import {AuthenticationGuard} from "./_helpers/authentication.guard";
-import {UserListComponent} from "./user/user-list/user-list.component";
+import { AuthenticationGuard } from "./_helpers/authentication.guard";
+import { UserListComponent } from "./user/user-list/user-list.component";
+import { NoteCreateComponent } from "./application/note-create/note-create.component";
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'applications', component: ApplicationListComponent, canActivate: [AuthenticationGuard] },
   { path: 'applications/create', component: ApplicationCreateComponent },
   { path: 'applications/update/:id', component: ApplicationUpdateComponent },
+  { path: 'applications/note/:id', component: NoteCreateComponent },
   // otherwise redirect to default about
   { path: '**', redirectTo: '/about' }
 ];

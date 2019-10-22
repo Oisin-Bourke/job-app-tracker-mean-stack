@@ -5,14 +5,16 @@ import { ApplicationCreateComponent } from './application-create/application-cre
 import { ApplicationListComponent } from "./application-list/application-list.component";
 import { AppMaterialModule } from "../app-material/app-material.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { NoteCreateComponent } from './note-create/note-create.component';
 
 
 @NgModule({
-  declarations: [ApplicationListComponent, ApplicationUpdateComponent, ApplicationCreateComponent],
+  declarations: [ApplicationListComponent, ApplicationUpdateComponent, ApplicationCreateComponent, NoteCreateComponent],
   exports: [
     ApplicationListComponent,
     ApplicationUpdateComponent,
-    ApplicationCreateComponent
+    ApplicationCreateComponent,
+
   ],
   imports: [
     CommonModule,
