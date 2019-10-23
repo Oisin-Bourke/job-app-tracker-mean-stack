@@ -1,1 +1,36 @@
-<p>note-create works!</p>
+<div>
+  <mat-card>
+    <mat-divider></mat-divider>
+    <br>
+    <div class="container">
+      <form [formGroup]="addNoteForm" (ngSubmit)="onSubmit()">
+        <div class="note-container">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="field-full-width">
+            <label>
+              <mat-select placeholder="Type" formControlName="type">
+                <mat-option value="None">Choose type</mat-option>
+                <mat-option value="Interview">Interview</mat-option>
+                <mat-option value="Assessment">Assessment</mat-option>
+                <mat-option value="Other">Other</mat-option>
+              </mat-select>
+            </label>
+          </mat-form-field>
+          <mat-form-field class="field-full-width">
+            <label>
+              <mat-label>Add note text: </mat-label>
+              <textarea matInput formControlName="body"></textarea>
+            </label>
+          </mat-form-field>
+          <br>
+        </div>
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="warn">Cancel</button>
+      </form>
+    </div>
+  </mat-card>
+</div>

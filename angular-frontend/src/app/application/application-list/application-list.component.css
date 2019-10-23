@@ -40,6 +40,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 }
 
 .example-element-description {
+  margin: 0;
   padding: 16px;
   width: 100%;
 }
@@ -52,7 +53,20 @@ tr.example-element-row:not(.example-expanded-row):active {
   text-align: center;
 }
 
+.note-container{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 button{
   margin-left: 15px;
   margin-right: 15px;
+}
+
+@media only screen  and (min-width : 1224px) {
+  .container {
+    margin: auto;
+    width: 50%;
+  }
+
 }

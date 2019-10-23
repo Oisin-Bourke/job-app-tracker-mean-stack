@@ -6,62 +6,76 @@
     <br>
     <mat-divider></mat-divider>
     <br>
-    <table mat-table [dataSource]="applications" multiTemplateDataRows class="mat-elevation-z8">
-
-      <ng-container matColumnDef="appDate">
-        <th mat-header-cell *matHeaderCellDef>App. Date</th>
-        <td mat-cell *matCellDef="let element"> {{element.appDate | date: 'mediumDate'}} </td>
-      </ng-container>
-      <ng-container matColumnDef="jobTitle">
-        <th mat-header-cell *matHeaderCellDef>Job Title</th>
-        <td mat-cell *matCellDef="let element">{{element.jobTitle}}</td>
-      </ng-container>
-      <ng-container matColumnDef="company">
-        <th mat-header-cell *matHeaderCellDef>Company</th>
-        <td mat-cell *matCellDef="let element">{{element.company}}</td>
-      </ng-container>
-      <ng-container matColumnDef="expand">
-        <th mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button matSuffix disabled>
-            <mat-icon aria-hidden="true">expand_more</mat-icon>
-          </button>
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-icon-button matSuffix [matMenuTriggerFor]="menu">
-            <mat-icon aria-hidden="true">more_horiz</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="navigateAddNote(element.id)">+ Note</button>
-            <button mat-menu-item>Edit</button>
-            <button mat-menu-item>Delete</button>
-          </mat-menu>
-        </td>
-      </ng-container>
-      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
-      <ng-container matColumnDef="expandedDetail">
-        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-          <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-            <div class="example-element-description">
-              <mat-card>
-                <mat-list dense>
-                  <mat-list-item>Location: {{element.location}}</mat-list-item>
-                  <mat-list-item>Email: {{element.email}}</mat-list-item>
-                  <mat-list-item>Telephone: {{element.telephone}}</mat-list-item>
-                  <mat-list-item>Status: {{element.status}}</mat-list-item>
-                </mat-list>
-              </mat-card>
-            </div>
-          </div>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let element; columns: displayedColumns;"
-          class="example-element-row"
-          [class.example-expanded-row]="expandedElement === element"
-          (click)="expandedElement = expandedElement === element ? null : element">
-      </tr>
-      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
-    </table>
+    <div class="container">
+      <table mat-table [dataSource]="applications" multiTemplateDataRows class="mat-elevation-z8">
+        <ng-container matColumnDef="appDate">
+          <th mat-header-cell *matHeaderCellDef>App. Date</th>
+          <td mat-cell *matCellDef="let element"> {{element.appDate | date: 'mediumDate'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="jobTitle">
+          <th mat-header-cell *matHeaderCellDef>Job Title</th>
+          <td mat-cell *matCellDef="let element">{{element.jobTitle}}</td>
+        </ng-container>
+        <ng-container matColumnDef="company">
+          <th mat-header-cell *matHeaderCellDef>Company</th>
+          <td mat-cell *matCellDef="let element">{{element.company}}</td>
+        </ng-container>
+        <ng-container matColumnDef="expand">
+          <th mat-header-cell *matHeaderCellDef>
+            <button mat-icon-button matSuffix disabled>
+              <mat-icon aria-hidden="true">expand_more</mat-icon>
+            </button>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button matSuffix [matMenuTriggerFor]="menu">
+              <mat-icon aria-hidden="true">more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="navigateAddNote(element.id)">+ Note</button>
+              <button mat-menu-item>Edit</button>
+              <button mat-menu-item>Delete</button>
+            </mat-menu>
+          </td>
+        </ng-container>
+          <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+          <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+              <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <div class="example-element-description">
+                  <mat-card>
+                    <mat-list dense>
+                      <mat-list-item>Location: {{element.location}}</mat-list-item>
+                      <mat-list-item>Email: {{element.email}}</mat-list-item>
+                      <mat-list-item>Telephone: {{element.telephone}}</mat-list-item>
+                      <mat-list-item>Status: {{element.status}}</mat-list-item>
+                    </mat-list>
+                  </mat-card>
+                </div>
+              </div>
+              <div *ngIf="element.notes.length" class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                <div class="example-element-description">
+                    <mat-card class="note-container"  *ngFor="let note of element.notes">
+                      <mat-card-subtitle>{{note.date | date: 'mediumDate'}} - {{note.type}}</mat-card-subtitle>
+                      <mat-card-content> {{note.body}}</mat-card-content>
+                      <mat-card-actions align="end">
+                        <button mat-icon-button matSuffix (click)="deleteNote(note._id)">
+                          <mat-icon aria-hidden="true">delete</mat-icon>
+                        </button>
+                      </mat-card-actions>
+                    </mat-card>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+            class="example-element-row"
+            [class.example-expanded-row]="expandedElement === element"
+            (click)="expandedElement = expandedElement === element ? null : element">
+        </tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      </table>
+    </div>
   </mat-card>
 </div>
 

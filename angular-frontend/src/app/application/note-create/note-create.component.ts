@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { ApplicationService } from "../../services/application.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-note-create',
@@ -10,27 +11,37 @@ import { Router } from "@angular/router";
 })
 export class NoteCreateComponent implements OnInit {
 
-  createNoteForm: FormGroup;
+  addNoteForm: FormGroup;
+  id: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private applicationService: ApplicationService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
-    this.createNoteForm = this.formBuilder.group({
-      date: '',
+    this.addNoteForm = this.formBuilder.group({
+      date: new FormControl(new Date()),
       type: '',
       body: '',
     });
+
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
   }
 
-  addNote(id, date, type, body) {
-    this.applicationService.addNote(id, date, type, body)
-      .subscribe( () => {
-        this.router.navigate(['/applications/']);
-      });
-  }
+    onSubmit() {
+      this.applicationService.addNote(this.id, this.addNoteForm.value.date, this.addNoteForm.value.type, this.addNoteForm.value.body)
+        .subscribe(() => {
+          this.router.navigate(['/applications/']);
+        });
+    }
+
+    navigateBack(){
+      this.location.back();
+    }
 
 }

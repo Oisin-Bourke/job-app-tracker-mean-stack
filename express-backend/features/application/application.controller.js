@@ -9,7 +9,7 @@ router.post('/create', create);
 router.put('/update/:id', update);
 router.delete('/delete/:id', _delete);
 router.put('/note/:id', addNote);
-router.put('/delete/note/:id', deleteNote);
+router.put('/delete/note', deleteNote);
 
 module.exports = router;
 
@@ -58,7 +58,7 @@ function addNote(req, res, next) {
 }
 
 function deleteNote(req, res, next) {
-    applicationService.deleteNote(req.params.id)
+    applicationService.deleteNote(req.body._id)
         .then(() =>res.json({ message: 'Note deleted' }))
         .catch(err => next(err));
 

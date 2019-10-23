@@ -37,6 +37,13 @@ export class ApplicationListComponent implements OnInit {
       });
   }
 
+  deleteNote(id){
+    this.applicationService.deleteNote(id)
+      .subscribe( () => {
+        this.fetchApplications();
+    });
+  }
+
   navigateCreate(){
     this.router.navigate(['/applications/create']);
   }

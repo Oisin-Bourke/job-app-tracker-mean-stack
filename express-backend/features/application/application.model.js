@@ -11,7 +11,7 @@ const applicationSchema = new Schema({
     notes: [
         {
             date: Date,
-            type: String,
+            type: { type: String },
             body: { type: String, trim: true }
         }
     ],

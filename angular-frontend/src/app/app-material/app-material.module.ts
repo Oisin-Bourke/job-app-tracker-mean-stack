@@ -13,6 +13,9 @@ import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [],
@@ -30,7 +33,10 @@ import {MatMenuModule} from "@angular/material/menu";
     MatInputModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
   ],
   exports: [
     MatDividerModule,
@@ -45,7 +51,10 @@ import {MatMenuModule} from "@angular/material/menu";
     MatInputModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule
   ]
 })
 export class AppMaterialModule { }

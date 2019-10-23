@@ -49,9 +49,13 @@ async function addNote(id, date, type, body) {
     const application = await Application.findById(id);
     if (!application) throw 'Application not found';
 
-    const note = { date: date, type: type, body: body };
-    application.notes.push(note);
+    const note = {
+        date: date,
+        type: type,
+        body: body
+    };
 
+    application.notes.push(note);
     await application.save();
 }
 

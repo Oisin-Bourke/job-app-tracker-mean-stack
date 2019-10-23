@@ -25,10 +25,9 @@ export class RegisterComponent implements OnInit {
     private notificationService: NotificationService,
     private router: Router
   ) {
-    /*
     // If user already logged in
-    if(this.authenticationService.currentUserValue){
-      const user = this.authenticationService.currentUserValue;
+    if(this.authService.currentUserValue){
+      const user = this.authService.currentUserValue;
       // Go to Admin page if admin user is 'true'
       if(user.admin===true){
         this.router.navigate(['/users']);
@@ -37,7 +36,7 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/applications']);
       }
     }
-     */
+
   }
 
   ngOnInit() {

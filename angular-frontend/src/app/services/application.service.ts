@@ -25,15 +25,16 @@ export class ApplicationService {
   }
 
   addNote(id : number, date, type, body){
-
     const note = {
       date: date,
       type: type,
       body: body
     };
-
     return this.http.put(`${environment.localApiUrl}/applications/note/${id}`, note );
   }
 
+  deleteNote(id: number){
+    return this.http.put(`${environment.localApiUrl}/applications/delete/note`,{ _id: id } );
+  }
 
 }
