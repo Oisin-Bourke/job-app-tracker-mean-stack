@@ -32,8 +32,8 @@
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="navigateAddNote(element.id)">+ Note</button>
-              <button mat-menu-item>Edit</button>
-              <button mat-menu-item>Delete</button>
+              <button mat-menu-item (click)="navigateUpdate(element.id)">Edit</button>
+              <button mat-menu-item (click)="deleteApplication(element.id)">Delete</button>
             </mat-menu>
           </td>
         </ng-container>

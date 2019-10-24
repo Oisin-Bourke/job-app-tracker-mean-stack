@@ -21,10 +21,6 @@ mat-form-field{
   margin-top: 5px;
 }
 
-mat-expansion-panel{
-  margin-top: 5px;
-}
-
 @media only screen  and (min-width : 1224px) {
   .container {
     margin: auto;

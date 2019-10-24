@@ -1,5 +1,8 @@
 <div>
   <mat-card>
+    <section class="mat-typography">
+      <h3>+ New Note</h3>
+    </section>
     <mat-divider></mat-divider>
     <br>
     <div class="container">
@@ -29,7 +32,7 @@
           <br>
         </div>
         <button mat-raised-button color="primary">Save</button>
-        <button mat-raised-button color="warn">Cancel</button>
+        <button mat-raised-button color="warn" (click)="navigateBack()">Cancel</button>
       </form>
     </div>
   </mat-card>

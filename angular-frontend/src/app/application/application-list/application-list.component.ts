@@ -37,6 +37,12 @@ export class ApplicationListComponent implements OnInit {
       });
   }
 
+  deleteApplication(id){
+    this.applicationService.deleteApplication(id).subscribe(() => {
+      this.fetchApplications();
+    })
+  }
+
   deleteNote(id){
     this.applicationService.deleteNote(id)
       .subscribe( () => {
@@ -46,6 +52,10 @@ export class ApplicationListComponent implements OnInit {
 
   navigateCreate(){
     this.router.navigate(['/applications/create']);
+  }
+
+  navigateUpdate(id){
+    this.router.navigate([`applications/update/${id}`])
   }
 
   navigateAddNote(id){

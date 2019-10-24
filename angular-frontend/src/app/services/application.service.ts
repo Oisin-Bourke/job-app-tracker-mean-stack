@@ -14,14 +14,21 @@ export class ApplicationService {
     return this.http.get<Application[]>(`${environment.localApiUrl}/applications`);
   }
 
-  addIssue(responsible, url, severity, description) {
-    const issue = {
-      responsible: responsible,
-      url: url,
-      severity: severity,
-      description: description
-    };
-    return this.http.post(`${environment.localApiUrl}/applications/create`, issue);
+  getApplication(id) {
+    return this.http.get<Application>(`${environment.localApiUrl}/applications/${id}`);
+  }
+
+  addApplication(application: Application) {
+    return this.http.post(`${environment.localApiUrl}/applications/create`, application);
+  }
+
+  updateApplication(id,application: Application){
+    return this.http.put(`${environment.localApiUrl}/applications/update/${id}`, application);
+
+  }
+
+  deleteApplication(id){
+    return this.http.delete(`${environment.localApiUrl}/applications/delete/${id}`);
   }
 
   addNote(id : number, date, type, body){

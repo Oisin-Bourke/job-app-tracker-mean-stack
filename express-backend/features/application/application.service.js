@@ -4,6 +4,7 @@ const User = db.User;
 
 module.exports = {
     getApplications,
+    getApplication,
     create,
     update,
     delete: _delete,
@@ -15,8 +16,11 @@ async function getApplications(author) {
     return await Application.find({ author: author });
 }
 
+async function getApplication(id){
+    return await Application.findById(id);
+}
+
 async function create(appDate, jobTitle, company, location, email, telephone, author) {
-    /* Possible unnecessary user check */
     const existingUser = await User.findById(author);
     if (!existingUser) throw 'User does not exist';
 
@@ -35,7 +39,7 @@ async function create(appDate, jobTitle, company, location, email, telephone, au
 async function update(id, params) {
     const application = await Application.findById(id);
     // validate
-    if (!application) throw 'Issue not found';
+    if (!application) throw 'Application not found';
 
     Object.assign(application,params);
     await application.save();

@@ -16,9 +16,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'users', component: UserListComponent, canActivate: [AuthenticationGuard]},
   { path: 'applications', component: ApplicationListComponent, canActivate: [AuthenticationGuard] },
-  { path: 'applications/create', component: ApplicationCreateComponent },
-  { path: 'applications/update/:id', component: ApplicationUpdateComponent },
-  { path: 'applications/note/:id', component: NoteCreateComponent },
+  { path: 'applications/create', component: ApplicationCreateComponent, canActivate: [AuthenticationGuard] },
+  { path: 'applications/update/:id', component: ApplicationUpdateComponent, canActivate: [AuthenticationGuard] },
+  { path: 'applications/note/:id', component: NoteCreateComponent, canActivate: [AuthenticationGuard] },
   // otherwise redirect to default about
   { path: '**', redirectTo: '/about' }
 ];

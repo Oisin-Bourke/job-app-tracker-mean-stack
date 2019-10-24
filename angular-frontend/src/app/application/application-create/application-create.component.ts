@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ApplicationService} from "../../services/application.service";
 import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-issue-create',
@@ -11,26 +12,42 @@ import { Router } from "@angular/router";
 export class ApplicationCreateComponent implements OnInit {
 
   createApplicationForm: FormGroup;
+  submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private issueService: ApplicationService,
-    private router: Router){}
+    private applicationService: ApplicationService,
+    private router: Router,
+    private location: Location
+  ){}
 
   ngOnInit() {
     this.createApplicationForm = this.formBuilder.group({
-      responsible: ['', Validators.required],
-      url: ['', Validators.required],
-      severity: '',
-      description: ['', Validators.required],
+      appDate: new FormControl(new Date()),
+      jobTitle: '',
+      company: '',
+      location: '',
+      email: ['', [Validators.email]],
+      telephone: ''
     });
   }
 
-  addIssue(responsible, url, severity, description ) {
-    this.issueService.addIssue(responsible, url, severity, description)
-      .subscribe( () => {
+  onSubmit(){
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.createApplicationForm.invalid) {
+      return;
+    }
+
+    this.applicationService.addApplication(this.createApplicationForm.value)
+      .subscribe(() => {
         this.router.navigate(['/applications/']);
       });
   }
+
+  navigateBack(){
+    this.location.back();
+  }
+
 
 }

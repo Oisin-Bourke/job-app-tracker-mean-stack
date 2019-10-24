@@ -10,7 +10,6 @@ import { Location } from "@angular/common";
   styleUrls: ['./note-create.component.css']
 })
 export class NoteCreateComponent implements OnInit {
-
   addNoteForm: FormGroup;
   id: any;
 

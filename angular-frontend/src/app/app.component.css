@@ -38,54 +38,8 @@ p {
   margin: 0 16px;
 }
 
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 16px;
+.login-toolbar{
+  margin-right: 10px;
 }
 
-.toolbar #twitter-logo:hover {
-  opacity: 0.8;
-}
-
-.card svg.material-icons path {
-  fill: #888;
-}
-
-.card-container .card:not(.highlight-card):hover .material-icons path {
-  fill: rgb(105, 103, 103);
-}
-
-.card.card.highlight-card span {
-  margin-left: 60px;
-}
-
-a,
-a:visited,
-a:hover {
-  color: #1976d2;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #125699;
-}
-
-.terminal pre {
-  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-  color: white;
-  padding: 0 1rem 1rem;
-  margin: 0;
-}
-
-footer {
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  line-height: 20px;
-}
-
-footer a {
-  display: flex;
-  align-items: center;
-}
 

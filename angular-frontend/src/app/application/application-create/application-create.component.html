@@ -1,40 +1,51 @@
 <div>
   <mat-card>
     <section class="mat-typography">
-      <h3> Create Issue</h3>
+      <h3>+ New Job Application</h3>
     </section>
     <mat-divider></mat-divider>
     <br>
-    <form [formGroup]="createApplicationForm" class="create-form">
-      <mat-form-field class="field-full-width">
-        <label>
-          <input matInput placeholder="Responsible" formControlName="responsible" #responsible>
-        </label>
-      </mat-form-field>
-      <mat-form-field class="field-full-width">
-        <label>
-          <input matInput placeholder="Url" formControlName="url" #url>
-        </label>
-      </mat-form-field>
-      <mat-form-field class="field-full-width">
-        <label>
-          <mat-select placeholder="Severity" formControlName="severity" #severity>
-            <mat-option value="Low">Low</mat-option>
-            <mat-option value="Medium">Medium</mat-option>
-            <mat-option value="High">High</mat-option>
-          </mat-select>
-        </label>
-      </mat-form-field>
-      <mat-form-field class="field-full-width">
-        <label>
-          <textarea matInput placeholder="Description" formControlName="description" #description></textarea>
-        </label>
-      </mat-form-field>
-      <mat-divider></mat-divider>
-      <br>
-     <!--<button mat-raised-button color="accent" (click)="backOnePage()">Back</button>-->
-      <button type="submit" (click)="addIssue(responsible.value, url.value, severity.value, description.value)" [disabled]="createApplicationForm.pristine || createApplicationForm.invalid" mat-raised-button color="primary">Create</button>
-    </form>
+    <div class="container">
+      <form [formGroup]="createApplicationForm" (ngSubmit)="onSubmit()" class="create-form">
+        <mat-form-field class="field-full-width">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="appDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Job Title" formControlName="jobTitle">
+          </label>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Company" formControlName="company">
+          </label>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Location" formControlName="location">
+          </label>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput formControlName="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && createApplicationForm.controls.email.errors }">
+          </label>
+        </mat-form-field>
+        <div *ngIf="submitted && createApplicationForm.controls.email.errors" class="invalid-feedback">
+          <div *ngIf="createApplicationForm.controls.email.errors.email">Must be a valid email address</div>
+        </div>
+        <mat-form-field class="field-full-width">
+          <label>
+            <input matInput placeholder="Telephone" formControlName="telephone">
+          </label>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="warn" (click)="navigateBack()">Cancel</button>
+      </form>
+    </div>
   </mat-card>
 </div>
 

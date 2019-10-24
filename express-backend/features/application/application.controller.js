@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 /* Routes */
 router.get('/', getApplications);
+router.get('/:id', getApplication);
 router.post('/create', create);
 router.put('/update/:id', update);
 router.delete('/delete/:id', _delete);
@@ -20,6 +21,12 @@ function getApplications(req, res, next) {
     applicationService.getApplications(authorId)
         .then(applications => res.json(applications))
         .catch(err => next(err));
+}
+
+function getApplication(req, res, next) {
+    applicationService.getApplication(req.params.id)
+        .then( application => res.json(application))
+        .catch(err => next(err))
 }
 
 function create(req, res, next) {
@@ -40,7 +47,7 @@ function create(req, res, next) {
 }
 
 function update(req, res, next) {
-    applicationService.update(req.params.id, req.body)
+    applicationService.update(req.params.id,req.body)
         .then(() => res.json({ message: 'Application updated' }))
         .catch(err => next(err));
 }
