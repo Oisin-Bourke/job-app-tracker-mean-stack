@@ -12,7 +12,6 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { UserModule } from "./user/user.module";
 import { ErrorInterceptor } from "./_helpers/error.interceptor";
 
-
 @NgModule({
   declarations: [
     AppComponent

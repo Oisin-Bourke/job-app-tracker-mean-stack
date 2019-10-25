@@ -9,13 +9,13 @@
     <div class="spacer"></div>
   <div class="login-toolbar">
     <span *ngIf="currentUser; else elseBlock"> {{currentUser.username}}
-       <button mat-icon-button matSuffix color="accent" matTooltip="Logout" (click)="logout()">
+       <button mat-icon-button matSuffix matTooltip="Logout" (click)="logout()">
          <mat-icon aria-hidden="true">exit_to_app</mat-icon>
        </button>
     </span>
     <ng-template #elseBlock>
       <span>
-        <button mat-icon-button matSuffix color="accent" matTooltip="Login" (click)="login()">
+        <button mat-icon-button matSuffix matTooltip="Login" (click)="login()">
           <mat-icon aria-hidden="true">person</mat-icon>
          </button>
       </span>

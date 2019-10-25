@@ -3,6 +3,8 @@ import { Application} from "../../models/application.model";
 import { ApplicationService } from "../../services/application.service";
 import { Router } from "@angular/router";
 import { animate, state, style, transition, trigger } from "@angular/animations";
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-issue-list',
@@ -48,6 +50,26 @@ export class ApplicationListComponent implements OnInit {
       .subscribe( () => {
         this.fetchApplications();
     });
+  }
+
+  fileDownload(){
+    const replacer = (key, value) => value === null ? '' : value;
+    //const header = Object.keys(this.applications[0]);
+    const header = ["appDate", "jobTitle", "company", "location", "email", "telephone", "status", "notes"];
+    let csv = this.applications.map(row => header.map(fieldName => (fieldName==='notes') ? JSON.stringify(this.stringifyArray(row[fieldName]), replacer): JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    const blob = new Blob([csvArray], {type: 'text/csv'});
+    saveAs(blob, "Job_Applications.csv");
+  }
+
+  stringifyArray(array :[]){
+    let text = '';
+    array.forEach(function (element) {
+      text += " * Date: "+ element['date'] +" * Type: " + element['type'] + " * Note: " + element['body'];
+    });
+    return text;
   }
 
   navigateCreate(){
