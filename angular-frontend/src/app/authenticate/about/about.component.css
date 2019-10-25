@@ -1,0 +1,14 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  max-width: 1224px;
+}
+
+@media only screen  and (min-width : 1224px) {
+  .container {
+    margin: auto;
+    width: 50%;
+  }
+
+}

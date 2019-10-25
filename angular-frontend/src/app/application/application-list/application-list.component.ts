@@ -54,8 +54,7 @@ export class ApplicationListComponent implements OnInit {
 
   fileDownload(){
     const replacer = (key, value) => value === null ? '' : value;
-    //const header = Object.keys(this.applications[0]);
-    const header = ["appDate", "jobTitle", "company", "location", "email", "telephone", "status", "notes"];
+    const header = ['appDate', 'jobTitle', 'company', 'location', 'email', 'telephone', 'status'];//add notes array
     let csv = this.applications.map(row => header.map(fieldName => (fieldName==='notes') ? JSON.stringify(this.stringifyArray(row[fieldName]), replacer): JSON.stringify(row[fieldName], replacer)).join(','));
     csv.unshift(header.join(','));
     let csvArray = csv.join('\r\n');
