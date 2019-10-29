@@ -29,10 +29,6 @@ app.use('/applications', require('./features/application/application.controller'
 
 app.use(errorHandler);
 
-// Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
-
 /* Start server */
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80 ) : 4000;
 app.listen(port, function () {
