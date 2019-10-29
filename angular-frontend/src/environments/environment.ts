@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  localApiUrl: 'http://localhost:4000'
+  localApiUrl: 'http://localhost:4000',
+  herokuServer: 'https://pacific-citadel-72651.herokuapp.com'
 };
 
 /*

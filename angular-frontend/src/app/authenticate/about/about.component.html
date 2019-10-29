@@ -5,6 +5,11 @@
     <div class="container">
      <mat-card>
        <div class="about-container">
+         <section class="mat-typography">
+           <h1>INFO</h1>
+           <mat-divider></mat-divider>
+         </section>
+         <br>
          <mat-card-title-group>
            <mat-card-title>Concept</mat-card-title>
          </mat-card-title-group>
@@ -115,6 +120,26 @@
              <p>Jason Web Toekns (JWT) are a standardised optionally validated and/or encrypted container format that is used to securely transfer information between two parties.</p>
              <p>In this application, JWT are used to authenticate users. If a user provides the correct login credentials, a token,
                which includes a unique ID and role, is returned and stored in local storage. The token enables access to restricted routes. </p>
+           </mat-card-content>
+         </mat-card>
+         <mat-card-title-group>
+           <mat-card-subtitle>Deployment</mat-card-subtitle>
+         </mat-card-title-group>
+         <mat-card class="list-item">
+           <mat-card-header>
+             <mat-card-title>
+               Heroku
+             </mat-card-title>
+             <img mat-card-avatar src="assets/img/heroku_icon.jpeg">
+           </mat-card-header>
+           <mat-card-content>
+             <p>The project is hosted on Heroku and deployed using the the simplified CLI.<p>
+             <p>In the interests of modularity, the frontend and backend are deployed as separate applications:</p>
+             <mat-list dense>
+               <mat-list-item> Angular fronted </mat-list-item>
+               <mat-list-item> NodeJS/ExpressJS backend </mat-list-item>
+               <mat-list-item> The database is hosted by Atlas MongoDB </mat-list-item>
+             </mat-list>
            </mat-card-content>
          </mat-card>
          <mat-card-title-group>

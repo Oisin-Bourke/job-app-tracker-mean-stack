@@ -11,24 +11,24 @@ export class ApplicationService {
   constructor(private http: HttpClient) { }
 
   getApplicationsByUser() {
-    return this.http.get<Application[]>(`${environment.localApiUrl}/applications`);
+    return this.http.get<Application[]>(`${environment.herokuServer}/applications`);
   }
 
   getApplication(id) {
-    return this.http.get<Application>(`${environment.localApiUrl}/applications/${id}`);
+    return this.http.get<Application>(`${environment.herokuServer}/applications/${id}`);
   }
 
   addApplication(application: Application) {
-    return this.http.post(`${environment.localApiUrl}/applications/create`, application);
+    return this.http.post(`${environment.herokuServer}/applications/create`, application);
   }
 
   updateApplication(id,application: Application){
-    return this.http.put(`${environment.localApiUrl}/applications/update/${id}`, application);
+    return this.http.put(`${environment.herokuServer}/applications/update/${id}`, application);
 
   }
 
   deleteApplication(id){
-    return this.http.delete(`${environment.localApiUrl}/applications/delete/${id}`);
+    return this.http.delete(`${environment.herokuServer}/applications/delete/${id}`);
   }
 
   addNote(id : number, date, type, body){
@@ -37,11 +37,11 @@ export class ApplicationService {
       type: type,
       body: body
     };
-    return this.http.put(`${environment.localApiUrl}/applications/note/${id}`, note );
+    return this.http.put(`${environment.herokuServer}/applications/note/${id}`, note );
   }
 
   deleteNote(id: number){
-    return this.http.put(`${environment.localApiUrl}/applications/delete/note`,{ _id: id } );
+    return this.http.put(`${environment.herokuServer}/applications/delete/note`,{ _id: id } );
   }
 
 }

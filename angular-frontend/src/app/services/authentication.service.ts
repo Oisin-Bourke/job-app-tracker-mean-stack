@@ -23,7 +23,7 @@ export class AuthenticationService {
   }
 
   login(username, password){
-    return this.http.post<any>(`${environment.localApiUrl}/users/authenticate`, {username, password})
+    return this.http.post<any>(`${environment.herokuServer}/users/authenticate`, {username, password})
       .pipe(map(user => {
         /* Use local storage to store user and JWT token and keep logged in between pages */
         localStorage.setItem('currentUser', JSON.stringify(user));
