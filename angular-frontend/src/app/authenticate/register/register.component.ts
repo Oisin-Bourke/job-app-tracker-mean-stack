@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   hidePassword = true;
   hideConfirmPassword = true;
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -59,6 +60,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     this.userService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
@@ -71,6 +74,7 @@ export class RegisterComponent implements OnInit {
 
           this.registerForm.controls.email.reset();
           this.registerForm.controls.username.reset();
+          this.loading = false;
         });
   }
 

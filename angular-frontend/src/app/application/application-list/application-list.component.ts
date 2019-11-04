@@ -52,7 +52,7 @@ export class ApplicationListComponent implements OnInit {
     });
   }
 
-  fileDownload(){
+  csvExport(){
     const replacer = (key, value) => value === null ? '' : value;
     const header = ['appDate', 'jobTitle', 'company', 'location', 'email', 'telephone', 'status'];//add notes array
     let csv = this.applications.map(row => header.map(fieldName => (fieldName==='notes') ? JSON.stringify(this.stringifyArray(row[fieldName]), replacer): JSON.stringify(row[fieldName], replacer)).join(','));

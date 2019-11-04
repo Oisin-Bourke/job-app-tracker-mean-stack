@@ -75,7 +75,13 @@
             </mat-card>
         </div>
       </div>
-        <button mat-raised-button color="primary">Register</button>
+      <div class="button-container">
+        <div class="spinner-container" *ngIf="loading">
+          <mat-spinner color="accent" diameter="24"></mat-spinner>
+        </div>
+        <button type="submit" [disabled]="loading" mat-raised-button color="primary">Register
+        </button>
+      </div>
       <br>
     </form>
     </div>

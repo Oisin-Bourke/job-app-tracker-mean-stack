@@ -13,6 +13,7 @@ export class ApplicationCreateComponent implements OnInit {
 
   createApplicationForm: FormGroup;
   submitted = false;
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +39,8 @@ export class ApplicationCreateComponent implements OnInit {
     if (this.createApplicationForm.invalid) {
       return;
     }
+
+    this.loading = true;
 
     this.applicationService.addApplication(this.createApplicationForm.value)
       .subscribe(() => {

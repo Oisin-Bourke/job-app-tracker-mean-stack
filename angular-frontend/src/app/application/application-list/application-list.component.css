@@ -2,6 +2,7 @@ table {
   width: 100%;
 }
 
+
 tr.example-detail-row {
   height: 0;
 }
@@ -17,6 +18,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-row td {
   border-bottom-width: 0;
 }
+
 
 .example-element-detail {
   overflow: hidden;
@@ -41,7 +43,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-description {
   margin: 0;
-  padding: 16px;
+  padding: 8px;
   width: 100%;
 }
 
@@ -58,9 +60,46 @@ tr.example-element-row:not(.example-expanded-row):active {
   margin-bottom: 5px;
 }
 
+.note-content{
+  padding: 4px;
+}
+
+.align-right{
+  float: right;
+}
+
+.field-full-width{
+  padding-bottom: 6px;
+  width: 100%;
+}
+
+mat-card{
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 button{
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+mat-list-item{
+  font-size: 14px!important;
+}
+
+@media only screen  and (max-width : 480px) {
+  th, td {
+    font-size: smaller;
+  }
+
+  mat-list-item{
+    font-size: 11px!important;
+  }
+
+  mat-card-content{
+    font-size: 11px!important;
+  }
+
 }
 
 @media only screen  and (min-width : 1224px) {
@@ -70,3 +109,4 @@ button{
   }
 
 }
+

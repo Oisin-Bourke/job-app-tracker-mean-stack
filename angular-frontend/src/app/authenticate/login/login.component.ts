@@ -12,6 +12,7 @@ import { NotificationService } from "../../services/notification.service";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loading = false;
   hide = true;
 
   constructor(
@@ -20,7 +21,6 @@ export class LoginComponent implements OnInit {
     private authenticationService: AuthenticationService,
     private notificationService: NotificationService
   ) {
-    /*
     // If user already logged in
     if(this.authenticationService.currentUserValue){
       const user = this.authenticationService.currentUserValue;
@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/applications']);
       }
     }
-     */
   }
 
   ngOnInit() {
@@ -43,6 +42,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(username, password) {
+    this.loading = true;
+
     this.authenticationService.login( username, password)
       .pipe(first())
       .subscribe(
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           this.notificationService.showError(error);
+          this.loading = false;
           this.loginForm.reset();
         });
   }

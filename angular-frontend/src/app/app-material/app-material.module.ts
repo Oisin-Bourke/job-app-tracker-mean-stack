@@ -17,6 +17,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [],
@@ -38,7 +39,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatDatepickerModule,
     MatNativeDateModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatDividerModule,
@@ -57,7 +59,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatDatepickerModule,
     MatNativeDateModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ]
 })
 export class AppMaterialModule { }

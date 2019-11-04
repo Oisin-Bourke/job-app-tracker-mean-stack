@@ -15,6 +15,7 @@ export class ApplicationUpdateComponent implements OnInit {
   id : any;
   application : Application;
   submitted = false;
+  loading = false;
 
   constructor(
     private applicationService : ApplicationService,
@@ -61,6 +62,8 @@ export class ApplicationUpdateComponent implements OnInit {
     if (this.updateApplicationForm.invalid) {
       return;
     }
+
+    this.loading = true;
 
     this.applicationService.updateApplication(this.id,this.updateApplicationForm.value)
       .subscribe(() => {
