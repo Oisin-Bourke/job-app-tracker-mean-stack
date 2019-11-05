@@ -14,6 +14,8 @@ export class UserService {
     return this.http.post(`${environment.herokuServer}/users/register`, user);
   }
 
-
+  getAll() {
+    return this.http.get<User[]>(`${environment.herokuServer}/users`);
+  }
 
 }
