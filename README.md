@@ -13,6 +13,8 @@ App link: [Job App Tracker](https://secret-anchorage-18681.herokuapp.com)
 * Export your job record to CSV for Excel spreadsheets
 * Login in as admin user
 
+![alt text](job-app-tracker-mobile-first.png)
+
 ## Technologies
 The application is built using the MEAN (MongoDB, ExpressJS, Angular, NodeJS) stack - a modern open source and highly efficient development framework that allows the coder to use JavaScript on both the frontend and backend. 
 > The MEAN stack allows for the seamless transfer of data from one layer to another in JSON format.
